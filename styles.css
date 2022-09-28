@@ -1,14 +1,39 @@
 #cs1300-gallery {
-  background-color: lightblue;
+  background-color: #f09d58;
+  min-height: 100vh;
+  padding: 3vw;
+}
+
+body {
+  width: 100%;
+  margin: 0;
+  height: 100%;
 }
 
 /* Uncomment below if images are way too big.
 Selects all image tags and makes them 500px;
  */
-/*img {*/
-/*  width: 500px;*/
-/*}*/
+img {
+  width: 30vw;
+  min-width: 400px;
+  margin: 25px 0px 25px 0px;
+}
 
 .gallery-container {
   /* TODO add styles (hint: use flex!) https://www.w3schools.com/cssref/ */
+  display:flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+
+h1{
+  font-size: max(4em, 80px);
+}
+
+p {
+  font-size: max(2em, 40px);
+}
+
+#fruit-data{
+  text-align: center;
 }

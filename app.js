@@ -22,17 +22,35 @@ const apiRequest = async () => {
 }
 
 const updatePage = async () => {
-  const gallery = document.getElementById('cs1300-gallery');
+  const gallery = document.getElementById('fruit-data');
 
   // Make API request and get an array of fruit objects
   const fruitsArray = await apiRequest();
-  // console.log(fruitsArray);
+  const filtered = fruitsArray.filter(x => x.nutritions.protein > 1)
 
+  const names = filtered.map(x => x.name)
+  const protein = filtered.map(x => x.nutritions.protein);
+
+  const list = []
+  for(let i = 0; i < names.length; i++) {
+    list.push(names[i]+": "+protein[i]+" grams of protein")
+  }
+  console.log(list)
   // TODO: Use either `map` and/or `filter` to extract some data from the array of fruit objects
   // For example, find "name of all fruits whose sugar > 15",
 
   // TODO: Create a new HTML element to display your data
+  list.map(item => {
+    const data = document.createElement("p");
+    const node = document.createTextNode(item);
+    data.appendChild(node);
+    gallery.appendChild(data);
+  })
+  // const data = document.createElement("p");
+  // const node = document.createTextNode(list);
+  // data.appendChild(node);
 
+  // gallery.appendChild(data);
   // TODO: Append your new element to the page
 
 }
